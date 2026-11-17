@@ -14,6 +14,7 @@
   --wrap: 1200px;
   --gutter: clamp(1.25rem, 4vw, 3rem);
   --call-bar: 3.5rem;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 *,
@@ -37,7 +38,7 @@ body {
   font-size: 1.0625rem;
   line-height: 1.6;
   /* room for the fixed mobile call bar so it never covers content */
-  padding-bottom: calc(var(--call-bar) + env(safe-area-inset-bottom, 0px));
+  padding-bottom: calc(var(--call-bar) + var(--safe-bottom));
 }
 
 h1, h2, h3, h4, p, ul, ol, dl, dd { margin: 0; }
@@ -277,7 +278,7 @@ h4 { font-size: 1.0625rem; line-height: 1.25; letter-spacing: 0; }
     padding: 0;
   }
   .hero-mark picture { padding: 2rem; }
-  .hero-mark img { height: clamp(11rem, 17vw, 14.5rem); }
+  .hero-mark img { height: clamp(11rem, 17vw, 13.5rem); }
   .hero-mark-line {
     width: 100%;
     padding: 0.9rem 1rem;
@@ -373,11 +374,14 @@ h4 { font-size: 1.0625rem; line-height: 1.25; letter-spacing: 0; }
 .about-copy h2 { max-width: 18ch; }
 .about-copy > p:not(.eyebrow) { max-width: 38rem; margin-top: 1.25rem; }
 
+.about-link { display: inline-block; padding-block: 0.6rem; }
+
+/* raster crop is 448px wide: never shown above half that, so it stays sharp at 2x */
 .about-mark { justify-self: center; width: min(100%, 12rem); }
 
 @media (min-width: 52rem) {
   .about-grid { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); }
-  .about-mark { width: min(100%, 16rem); }
+  .about-mark { width: min(100%, 14rem); }
 }
 
 /* ---------- Contact ---------- */
@@ -420,7 +424,7 @@ h4 { font-size: 1.0625rem; line-height: 1.25; letter-spacing: 0; }
 .contact-details dd { font-size: 1.0625rem; font-weight: 500; }
 
 @media (min-width: 56rem) {
-  .contact-grid { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); align-items: end; }
+  .contact-grid { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); align-items: start; }
 }
 
 /* ---------- Footer ---------- */
@@ -470,8 +474,11 @@ h4 { font-size: 1.0625rem; line-height: 1.25; letter-spacing: 0; }
   display: flex;
   align-items: center;
   justify-content: center;
+  /* the bar grows by the inset so the label stays above the home indicator */
+  box-sizing: content-box;
   min-height: var(--call-bar);
-  padding-bottom: env(safe-area-inset-bottom, 0px);
+  padding-bottom: var(--safe-bottom);
+  padding-inline: env(safe-area-inset-left, 0px) env(safe-area-inset-right, 0px);
   background: var(--brick);
   color: var(--ivory);
   font-weight: 700;
