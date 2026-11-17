@@ -17,7 +17,7 @@ not the official Cobra Plumbing website, and the business has not reviewed it.
 | Phone (602) 663-8432 | Home, Services, Contact |
 | Email cobraplumbingllc@gmail.com | Home, Contact |
 | Serving Phoenix, Arizona | Contact, About |
-| Hours Monday–Saturday, 7 a.m.–7 p.m. (shown as "published business hours") | Home, Contact |
+| Hours Monday–Saturday, 7 a.m.–7 p.m. (shown as "Business hours") | Home, Contact |
 | Free over-the-phone estimates | Home, Contact |
 | Residential plumbing is the main focus; light commercial is also serviced | Home |
 | Specializes in drain cleaning, residential repairs, some light commercial | About |
@@ -31,6 +31,9 @@ not the official Cobra Plumbing website, and the business has not reviewed it.
 The one-line explanations under the four drain and sewer items (for example
 "High-pressure water cleaning for sewer lines") are plain definitions written
 for this concept, not claims taken from the source.
+
+The hero headline "Phoenix plumbing. Repairs done right." is a design headline
+written for this concept. It is not a guarantee or a claim taken from the source.
 
 ## Left out pending owner confirmation
 

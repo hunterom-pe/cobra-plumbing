@@ -10,7 +10,7 @@
   --rule: rgba(41, 40, 36, 0.18);
   --rule-light: rgba(245, 240, 230, 0.22);
 
-  --font: "Avenir Next", Avenir, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font: "Helvetica Neue", Helvetica, Arial, "Liberation Sans", sans-serif;
   --wrap: 1200px;
   --gutter: clamp(1.25rem, 4vw, 3rem);
   --call-bar: 3.5rem;
@@ -73,15 +73,16 @@ a { color: inherit; }
 /* ---------- Type ---------- */
 
 h1, h2, h3, h4 {
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.08;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.02em;
   text-wrap: balance;
 }
 
-h1 { font-size: clamp(2.5rem, 6.2vw, 4.75rem); letter-spacing: -0.025em; }
-h2 { font-size: clamp(1.9rem, 4vw, 3rem); }
-h3 { font-size: 1.3rem; line-height: 1.2; }
+h1 { font-size: clamp(1.9rem, 8.2vw, 3.75rem); line-height: 1.04; letter-spacing: -0.03em; }
+h1 span { display: block; }
+h2 { font-size: clamp(1.75rem, 3.6vw, 2.625rem); }
+h3 { font-size: 1.1875rem; line-height: 1.25; letter-spacing: -0.01em; }
 h4 { font-size: 1.0625rem; line-height: 1.25; letter-spacing: 0; }
 
 .eyebrow {
@@ -104,7 +105,7 @@ h4 { font-size: 1.0625rem; line-height: 1.25; letter-spacing: 0; }
 
 .text-link {
   color: var(--brick);
-  font-weight: 700;
+  font-weight: 500;
   text-decoration-thickness: 2px;
   text-underline-offset: 0.2em;
   overflow-wrap: anywhere;
@@ -121,13 +122,14 @@ h4 { font-size: 1.0625rem; line-height: 1.25; letter-spacing: 0; }
   padding: 0.6rem 1.25rem;
   border: 2px solid transparent;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.9375rem;
+  letter-spacing: 0.01em;
   line-height: 1.2;
   text-decoration: none;
   white-space: nowrap;
   transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
-.btn-large { min-height: 3.5rem; padding: 0.85rem 1.75rem; font-size: 1.0625rem; }
+.btn-large { min-height: 3.25rem; padding: 0.75rem 1.5rem; font-size: 1rem; }
 
 .btn-primary { background: var(--brick); color: var(--ivory); }
 .btn-primary:hover { background: var(--brick-dark); }
@@ -172,9 +174,9 @@ h4 { font-size: 1.0625rem; line-height: 1.25; letter-spacing: 0; }
 .brand img { width: auto; height: 3rem; }
 .brand-text { display: flex; flex-direction: column; line-height: 1; }
 .brand-name {
-  font-size: 1.5rem;
-  font-weight: 800;
-  letter-spacing: 0.02em;
+  font-size: 1.4375rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
 }
 .brand-sub {
@@ -194,7 +196,7 @@ h4 { font-size: 1.0625rem; line-height: 1.25; letter-spacing: 0; }
   align-items: center;
   min-height: 2.75rem;
   padding-inline: 0.75rem;
-  font-weight: 700;
+  font-weight: 500;
   text-decoration: none;
 }
 .site-nav a:hover,
@@ -216,18 +218,18 @@ h4 { font-size: 1.0625rem; line-height: 1.25; letter-spacing: 0; }
 
 /* ---------- Hero ---------- */
 
-.hero { padding-block: clamp(2.75rem, 7vw, 6rem); }
+.hero { padding-block: clamp(2rem, 4.5vw, 3.75rem); }
 
 .hero-grid {
   display: grid;
-  gap: clamp(2.5rem, 5vw, 4.5rem);
+  gap: clamp(1.75rem, 4vw, 4rem);
   align-items: center;
 }
 
 .lede {
-  max-width: 34rem;
-  margin-top: 1.5rem;
-  font-size: clamp(1.125rem, 1.6vw, 1.3125rem);
+  max-width: 32rem;
+  margin-top: 1.125rem;
+  font-size: clamp(1.0625rem, 1.5vw, 1.25rem);
   line-height: 1.5;
   color: var(--charcoal-soft);
 }
@@ -236,86 +238,78 @@ h4 { font-size: 1.0625rem; line-height: 1.25; letter-spacing: 0; }
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 
 .hero-note {
-  margin-top: 1.25rem;
+  margin-top: 1rem;
   font-size: 0.9375rem;
-  font-weight: 600;
   color: var(--charcoal-soft);
 }
 
-.hero-panel {
-  padding: clamp(1.75rem, 4vw, 2.75rem);
-  background: var(--brick);
-  color: var(--ivory);
-  /* stepped corner, a quiet nod to Southwest geometry */
-  clip-path: polygon(
-    0 0, calc(100% - 3rem) 0, calc(100% - 3rem) 1.5rem,
-    calc(100% - 1.5rem) 1.5rem, calc(100% - 1.5rem) 3rem,
-    100% 3rem, 100% 100%, 0 100%
-  );
+/* Brand plate: emblem on ivory, framed by rules, with a brick base line */
+.hero-mark {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1rem 1.25rem;
+  border: 2px solid var(--charcoal);
+  border-bottom: 8px solid var(--brick);
 }
-
-.panel-label {
+.hero-mark img { width: auto; height: 5.5rem; }
+.hero-mark-line {
+  display: grid;
+  gap: 0.35rem;
   font-size: 0.8125rem;
   font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-.panel-list { margin-top: 1.25rem; }
-.panel-list li {
-  display: flex;
-  align-items: baseline;
-  gap: 1rem;
-  padding-block: 1rem;
-  border-top: 1px solid var(--rule-light);
-  font-size: clamp(1.2rem, 2.2vw, 1.5rem);
-  font-weight: 800;
-  line-height: 1.2;
-}
-.panel-list .num {
-  flex: none;
-  font-size: 0.8125rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-}
-
-.panel-foot {
-  padding-top: 1rem;
-  border-top: 1px solid var(--rule-light);
-  font-weight: 600;
-}
-.panel-foot span {
-  display: block;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
 @media (min-width: 60rem) {
   .hero-grid { grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); }
+  h1 { font-size: clamp(2.5rem, 4.3vw, 3.875rem); }
+  .hero-mark {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 0;
+    padding: 0;
+  }
+  .hero-mark picture { padding: 2rem; }
+  .hero-mark img { height: clamp(11rem, 17vw, 14.5rem); }
+  .hero-mark-line {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border-top: 2px solid var(--charcoal);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+    text-align: center;
+  }
+}
+
+@media (min-width: 78rem) {
+  .hero-mark-line { display: flex; justify-content: center; gap: 0; }
+  .hero-mark-line span + span::before { content: "·"; margin-inline: 0.5em; color: var(--brick); }
 }
 
 /* ---------- Sections ---------- */
 
 .section {
-  padding-block: clamp(3.5rem, 8vw, 6.5rem);
+  padding-block: clamp(2.75rem, 5.5vw, 4.5rem);
   border-top: 1px solid var(--rule);
 }
 .section-alt { background: var(--ivory-deep); }
 
-.section-head { max-width: 44rem; margin-bottom: clamp(2rem, 4vw, 3.25rem); }
+.section-head { max-width: 44rem; margin-bottom: clamp(1.5rem, 3vw, 2.25rem); }
 
 /* ---------- Services ---------- */
 
 .feature {
   display: grid;
   gap: clamp(1.75rem, 4vw, 3.5rem);
-  padding: clamp(1.75rem, 4vw, 3.25rem);
+  padding: clamp(1.5rem, 3.5vw, 2.75rem);
   background: var(--charcoal);
   color: var(--ivory);
   border-top: 6px solid var(--brick);
@@ -329,7 +323,7 @@ h4 { font-size: 1.0625rem; line-height: 1.25; letter-spacing: 0; }
   text-transform: uppercase;
   color: #E3A898;
 }
-.feature h3 { font-size: clamp(1.9rem, 3.6vw, 2.75rem); }
+.feature h3 { font-size: clamp(1.75rem, 3.2vw, 2.375rem); letter-spacing: -0.02em; }
 .feature-intro p:last-child { margin-top: 1rem; max-width: 30rem; color: #DDD6C8; }
 
 .feature-list { display: grid; }
@@ -347,27 +341,26 @@ h4 { font-size: 1.0625rem; line-height: 1.25; letter-spacing: 0; }
 }
 
 .service-list {
-  display: grid;
-  margin-top: clamp(1.5rem, 3vw, 2.5rem);
-  column-gap: clamp(1.5rem, 3vw, 3rem);
+  margin-top: clamp(1.25rem, 2.5vw, 2rem);
+  border-bottom: 1px solid var(--rule);
 }
 .service-list li {
-  padding-block: 1.5rem;
-  border-top: 2px solid var(--charcoal);
+  display: grid;
+  gap: 0.2rem 2rem;
+  padding-block: 1rem;
+  border-top: 1px solid var(--rule);
 }
-.service-list p { margin-top: 0.4rem; color: var(--charcoal-soft); }
-.service-cta { border-top-color: var(--brick) !important; }
-.service-cta .text-link {
-  display: inline-flex;
-  align-items: center;
-  min-height: 2.75rem;
-}
+.service-list p { color: var(--charcoal-soft); }
 
 @media (min-width: 40rem) {
-  .service-list { grid-template-columns: 1fr 1fr; }
+  .service-list li { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); align-items: baseline; }
 }
-@media (min-width: 60rem) {
-  .service-list { grid-template-columns: repeat(3, 1fr); }
+
+.service-cta { margin-top: 1.25rem; }
+.service-cta .text-link {
+  display: inline-block;
+  padding-block: 0.6rem;
+  white-space: nowrap;
 }
 
 /* ---------- About ---------- */
@@ -377,32 +370,14 @@ h4 { font-size: 1.0625rem; line-height: 1.25; letter-spacing: 0; }
   gap: clamp(2.5rem, 6vw, 5rem);
   align-items: center;
 }
-.about-copy h2 { max-width: 20ch; }
+.about-copy h2 { max-width: 18ch; }
 .about-copy > p:not(.eyebrow) { max-width: 38rem; margin-top: 1.25rem; }
 
-.about-points {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1.75rem;
-  margin-top: 2rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--rule);
-  font-weight: 700;
-}
-.about-points li { display: flex; align-items: center; gap: 0.6rem; }
-.about-points li::before {
-  content: "";
-  width: 0.55rem;
-  height: 0.55rem;
-  background: var(--brick);
-  transform: rotate(45deg);
-}
-
-.about-mark { justify-self: center; width: min(100%, 15rem); }
+.about-mark { justify-self: center; width: min(100%, 12rem); }
 
 @media (min-width: 52rem) {
   .about-grid { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); }
-  .about-mark { width: min(100%, 19rem); }
+  .about-mark { width: min(100%, 16rem); }
 }
 
 /* ---------- Contact ---------- */
@@ -411,22 +386,22 @@ h4 { font-size: 1.0625rem; line-height: 1.25; letter-spacing: 0; }
   display: grid;
   gap: clamp(2.5rem, 6vw, 5rem);
 }
-.contact-lead h2 { max-width: 16ch; }
-.contact-lead .text-link { display: inline-block; padding-block: 0.6rem; }
+.contact-lead .text-link { display: inline-block; padding-block: 0.6rem; overflow-wrap: anywhere; }
+.contact-note { font-weight: 700; }
 
 .phone-link {
   display: inline-block;
-  margin-block: 1.25rem 0.5rem;
+  margin-block: 0.75rem 0.25rem;
   padding-block: 0.25rem;
   color: var(--brick);
-  font-size: clamp(2.25rem, 6vw, 4rem);
-  font-weight: 800;
+  font-size: clamp(2.125rem, 5.5vw, 3.5rem);
+  font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.02em;
   text-decoration: none;
   white-space: nowrap;
 }
-.phone-link:hover { color: var(--brick-dark); text-decoration: underline; text-decoration-thickness: 4px; text-underline-offset: 0.12em; }
+.phone-link:hover { color: var(--brick-dark); text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 0.12em; }
 
 .contact-details div {
   display: grid;
@@ -442,18 +417,10 @@ h4 { font-size: 1.0625rem; line-height: 1.25; letter-spacing: 0; }
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
-.contact-details dd { font-size: 1.125rem; font-weight: 700; overflow-wrap: anywhere; }
-.contact-details a {
-  display: inline-flex;
-  align-items: center;
-  min-height: 2.75rem;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 0.2em;
-}
-.contact-details a:hover { color: var(--brick); }
+.contact-details dd { font-size: 1.0625rem; font-weight: 500; }
 
 @media (min-width: 56rem) {
-  .contact-grid { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); align-items: start; }
+  .contact-grid { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); align-items: end; }
 }
 
 /* ---------- Footer ---------- */
@@ -466,12 +433,20 @@ h4 { font-size: 1.0625rem; line-height: 1.25; letter-spacing: 0; }
 }
 .footer-inner { display: grid; gap: 1.5rem; }
 .footer-name {
-  font-size: 1.25rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 .footer-place { color: #DDD6C8; }
+.footer-contact { display: flex; flex-wrap: wrap; gap: 0 1.5rem; margin-top: 0.5rem; }
+.footer-contact a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  text-underline-offset: 0.2em;
+  overflow-wrap: anywhere;
+}
 .site-footer nav ul { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-inline: -0.75rem; }
 .site-footer :focus-visible { outline-color: var(--ivory); }
 .footer-concept {
@@ -499,8 +474,8 @@ h4 { font-size: 1.0625rem; line-height: 1.25; letter-spacing: 0; }
   padding-bottom: env(safe-area-inset-bottom, 0px);
   background: var(--brick);
   color: var(--ivory);
-  font-weight: 800;
-  font-size: 1.0625rem;
+  font-weight: 700;
+  font-size: 1rem;
   text-decoration: none;
   border-top: 2px solid var(--charcoal);
 }

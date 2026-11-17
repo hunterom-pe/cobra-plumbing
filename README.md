@@ -25,6 +25,6 @@ Then open http://localhost:4173. Opening `index.html` directly also works.
 
 - The logo is a raster crop from the comparison board. A vector master of the
   B1 logo is required for production.
-- Typography uses a system font stack (Avenir Next on Apple devices, Segoe UI
-  on Windows), so headings vary slightly by platform. A licensed webfont
-  matched to the wordmark would fix this.
+- Typography uses a system grotesque stack (Helvetica Neue on Apple devices,
+  Arial on Windows, the default sans serif on Android), so headings vary
+  slightly by platform. A licensed webfont matched to the wordmark would fix this.
