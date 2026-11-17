@@ -1,0 +1,18 @@
+# Static concept site: no framework, no dependencies.
+[build]
+  command = "sh build.sh"
+  publish = "dist"
+
+# Keep the speculative concept out of search results for every file,
+# in addition to the noindex meta tag in index.html.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow, noarchive"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"

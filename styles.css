@@ -486,7 +486,7 @@ h4 { font-size: 1.0625rem; line-height: 1.25; letter-spacing: 0; }
   text-decoration: none;
   border-top: 2px solid var(--charcoal);
 }
-.call-bar:focus-visible { outline-color: var(--charcoal); outline-offset: -5px; }
+.call-bar:focus-visible { outline-color: var(--ivory); outline-offset: -6px; }
 
 @media (min-width: 48rem) {
   body { padding-bottom: 0; }

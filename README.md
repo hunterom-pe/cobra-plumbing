@@ -1,7 +1,7 @@
 # Cobra Plumbing LLC — redesign concept
 
 Independent, unsolicited redesign concept by Hunter Made. Not the official
-Cobra Plumbing website. Not deployed; `index.html` carries `noindex`.
+Cobra Plumbing website. `index.html` carries `noindex`.
 
 ## Preview
 
@@ -12,6 +12,13 @@ python3 -m http.server 4173
 ```
 
 Then open http://localhost:4173. Opening `index.html` directly also works.
+
+## Build and deploy
+
+`sh build.sh` copies the page, stylesheet and logo crops into `dist/` and
+fails if the noindex tag or either concept notice is missing. `netlify.toml`
+runs it and publishes `dist/`, and adds a noindex response header to every
+file. Docs, scripts and the reference board are not published.
 
 ## Files
 
